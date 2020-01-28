@@ -1,0 +1,20 @@
+format_version: 9
+pipelines:
+  build-on-linux:
+    group: dev
+    materials:
+      mygit:
+        git: http://example.com/mygit.git
+    stages:
+      - build:
+          jobs:
+            build:
+              tasks:
+                - exec:
+                    command: make
+environments:
+  dev:
+    environment_variables:
+      DEPLOYMENT_ENV: dev
+    pipelines:
+      - build-on-linux
