@@ -17,4 +17,6 @@ environments:
     environment_variables:
       DEPLOYMENT_ENV: dev
     pipelines:
-      - build-on-linux
+      - build-linux
+      - build-windows
+      - build-mac-os-x
