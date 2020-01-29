@@ -1,12 +1,12 @@
-## GoCD Mergable Yaml Example
-![.github/workflows/gocd-mergable.yml](https://github.com/GaneshSPatil/gocd-mergable-yaml-example/workflows/.github/workflows/gocd-mergable.yml/badge.svg)
+## GoCD Mergeable Yaml Example
+![.github/workflows/gocd-mergeable.yml](https://github.com/GaneshSPatil/gocd-mergeable-yaml-example/workflows/.github/workflows/gocd-mergeable.yml/badge.svg)
 
-An example GoCD Yaml config repository which uses [Gocd Mergable](https://github.com/GaneshSPatil/gocd-mergable) github action.
+An example GoCD Yaml config repository which uses [Gocd Mergeable](https://github.com/GaneshSPatil/gocd-mergeable) github action.
 
 ### Description
 
 This repository contains GoCD configurations specified in YAML format using [GoCD Yaml Config Plugin](https://github.com/tomzo/gocd-yaml-config-plugin). 
-The GoCD Mergable github action verifies whether changes done to the GoCD configuration files are valid or not.
+The GoCD Mergeable github action verifies whether changes done to the GoCD configuration files are valid or not.
 
 ### Setup
 
@@ -35,7 +35,7 @@ environments:
       - build-on-linux
 ```
 
-2. Create `.github/workflows/gocd-mergable.yml` to setup GoCD Mergable Github Action.
+2. Create `.github/workflows/gocd-mergeable.yml` to setup GoCD Mergeable Github Action.
 
 ```yaml
 on: [push, pull_request]
@@ -48,7 +48,7 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
       - name: Verify Config Merge
-        uses: GaneshSPatil/gocd-mergable@v1.0.0
+        uses: GaneshSPatil/gocd-mergeable@v1.0.0
         with:
           GOCD_SERVER_URL: 'https://build.gocd.org/go'
           GOCD_ADMIN_ACCESS_TOKEN: ${{ secrets.GOCD_ADMIN_ACCESS_TOKEN }}
@@ -57,5 +57,5 @@ jobs:
 
 ### License
 
-GoCD Mergable Yaml Example is an open source project, under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+GoCD Mergeable Yaml Example is an open source project, under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
