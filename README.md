@@ -5,7 +5,7 @@ An example GoCD Yaml config repository which uses [Gocd Mergeable](https://githu
 
 ### Description
 
-This repository contains GoCD configurations specified in YAML format using [GoCD Yaml Config Plugin](https://github.com/tomzo/gocd-yaml-config-plugin). 
+This repository contains GoCD configurations specified in YAML format using [GoCD Yaml Config Plugin](https://github.com/tomzo/gocd-yaml-config-plugin).
 The GoCD Mergeable github action verifies whether changes done to the GoCD configuration files are valid or not.
 
 ### Setup
@@ -35,7 +35,9 @@ environments:
       - build-on-linux
 ```
 
-2. Create `.github/workflows/gocd-mergeable.yml` to setup GoCD Mergeable Github Action.
+2. Add the [configuration repository to GoCD config repositories](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html#pipeline-configuration-in-yaml). Note the ID you've assigned to it, e.g. `gocd-mergeable-yaml-example`.
+
+3. Create `.github/workflows/gocd-mergeable.yml` to setup GoCD Mergeable Github Action.
 
 ```yaml
 on: [push, pull_request]
@@ -52,10 +54,9 @@ jobs:
         with:
           GOCD_SERVER_URL: 'https://build.gocd.org/go'
           GOCD_ADMIN_ACCESS_TOKEN: ${{ secrets.GOCD_ADMIN_ACCESS_TOKEN }}
-          GOCD_CONFIG_REPOSITORY_ID: 'plugin-api.go.cd-pipelines-yaml'
+          GOCD_CONFIG_REPOSITORY_ID: 'gocd-mergeable-yaml-example' # The ID you have assined on config repositories page on GoCD Admin UI.
 ```
 
 ### License
 
 GoCD Mergeable Yaml Example is an open source project, under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
-
